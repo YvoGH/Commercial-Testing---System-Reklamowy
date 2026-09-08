@@ -1,0 +1,17 @@
+import { test, expect } from '@playwright/test';
+import { LoginPage } from '../pages/LoginPage';
+
+// Sekcja konfiguracji danych
+const LOGIN = process.env.PLAYWRIGHT_TEST_LOGIN as string;
+const PASS = process.env.PLAYWRIGHT_TEST_PASS as string;
+
+test.describe('Autentykacja i sesja użytkownika', () => {
+
+    test('Poprawne logowanie do systemu', async ({ page }) => {
+        await page.goto('/login');
+
+        const stronaLogowania = new LoginPage(page);
+        await stronaLogowania.zalogujDoSystemu(LOGIN, PASS);
+        await expect(page.getByRole('heading', { name: 'System reklamowy'}));
+    })
+});
