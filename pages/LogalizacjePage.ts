@@ -24,3 +24,11 @@ export class LokalizacjePage {
         await this.linkMenuLokalizacje.click();
         await this.page.waitForURL(/.*lokalizacje.*/);
     }
+    async dodajLokalizacje(klifUuid: string, miasto: string, nazwa: string) {
+        await this.buttonDodajLokalizacje.click();
+        await this.inputKlifUuid.fill(klifUuid);
+        await this.inputMiasto.fill(miasto);
+        await this.inputNazwa.fill(nazwa);
+        await this.buttonZapiszLokalizacje.click();
+    }
+}
