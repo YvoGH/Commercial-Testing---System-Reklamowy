@@ -1,1 +1,2 @@
-.nawigacja po stronie - testy z nowymi skillsami
+import { test, expect } from '@playwright/test';
+import { LoginPage } from '../pages/LoginPage';
