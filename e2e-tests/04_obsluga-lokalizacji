@@ -1,2 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../pages/LoginPage';
+
+
+const LOGIN = process.env.PLAYWRIGHT_TEST_LOGIN as string;
+const PASS = process.env.PLAYWRIGHT_TEST_PASS as string;
